@@ -34,7 +34,7 @@
         />
 
         <title>Tiny Desk Now</title>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
         <style>
             body {
@@ -93,6 +93,51 @@
                 text-decoration: underline;
             }
 
+            .dot1 {
+                animation: dot1-fade 2s infinite;
+            }
+
+            .dot2 {
+                animation: dot2-fade 2s infinite;
+            }
+
+            .dot3 {
+                animation: dot3-fade 2s infinite;
+            }
+
+            @keyframes dot1-fade {
+                0%,
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes dot2-fade {
+                0%,
+                16.66% {
+                    opacity: 0;
+                }
+                33.33%,
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes dot3-fade {
+                0%,
+                49.99% {
+                    opacity: 0;
+                }
+                66.66%,
+                83.32% {
+                    opacity: 1;
+                }
+                83.33%,
+                100% {
+                    opacity: 0;
+                }
+            }
+
             /* Mobile styles */
             @media (max-width: 1476px) {
                 .mic-image {
@@ -127,7 +172,12 @@
     <body>
         <div class="container">
             <div class="text-content">
-                <h1 class="title">finding you a tiny concert...</h1>
+                <h1 class="title">
+                    finding you a tiny concert<span class="dots"
+                        ><span class="dot1">.</span><span class="dot2">.</span
+                        ><span class="dot3">.</span></span
+                    >
+                </h1>
                 <p class="credit">
                     made with &lt;3 by
                     <a href="https://ratik.in" target="_blank">ratik</a>
