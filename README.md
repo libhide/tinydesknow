@@ -47,9 +47,10 @@ Visit `http://localhost:3000` and get redirected to a random Tiny Desk concert!
 
 1. **Smart Caching**: Server fetches the complete NPR Tiny Desk playlist (~800+ videos) on startup
 2. **Background Refresh**: Cache automatically updates every 3 days to include new concerts
-3. **Direct Redirect**: Server immediately redirects users to a random video (no client-side code)
-4. **Efficient**: Only hits YouTube API once every 3 days, not on every user visit
-5. **Fallback**: Graceful error handling ensures the app always works
+3. **Social Media Friendly**: Landing page shows with proper meta tags for sharing, then redirects
+4. **Fast Experience**: 1.5 second delay allows crawlers to read meta tags while keeping UX snappy
+5. **Efficient**: Only hits YouTube API once every 3 days, not on every user visit
+6. **Fallback**: Graceful error handling ensures the app always works
 
 ## Deployment
 
