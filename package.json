@@ -7,7 +7,12 @@
     "start": "node server.js",
     "dev": "node server.js"
   },
-  "keywords": ["npr", "tiny-desk", "music", "random"],
+  "keywords": [
+    "npr",
+    "tiny-desk",
+    "music",
+    "random"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {

@@ -32,31 +32,39 @@ YOUTUBE_API_KEY=your_actual_api_key_here
 ### 3. Install Dependencies
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### 4. Run the App
 
 ```bash
-npm start
+pnpm start
 ```
 
 Visit `http://localhost:3000` and get redirected to a random Tiny Desk concert!
 
 ## How It Works
 
-1. Backend fetches the complete NPR Tiny Desk playlist using YouTube Data API v3
-2. Randomly selects one video from the entire collection
-3. Frontend redirects you to the chosen video
-4. Fallback handling ensures the app works even if the API is temporarily unavailable
+1. **Smart Caching**: Server fetches the complete NPR Tiny Desk playlist (~800+ videos) on startup
+2. **Background Refresh**: Cache automatically updates every 3 days to include new concerts
+3. **Instant Response**: Users get random videos immediately from cache (no API delays)
+4. **Efficient**: Only hits YouTube API once every 3 days, not on every user visit
+5. **Fallback**: Graceful error handling ensures the app always works
+
+## API Endpoints
+
+- `GET /` - Main app interface
+- `GET /api/random-video` - Returns a random video ID from cache
+- `GET /api/cache-status` - Debug endpoint showing cache status and age
 
 ## Deployment
 
 For production deployment, set the `YOUTUBE_API_KEY` environment variable on your hosting platform.
 
 Popular options:
+
 - **Vercel**: Add the API key in your project settings
-- **Netlify**: Set environment variables in site settings  
+- **Netlify**: Set environment variables in site settings
 - **Heroku**: Use `heroku config:set YOUTUBE_API_KEY=your_key`
 
 ## Contributing
