@@ -53,7 +53,7 @@ async function refreshVideoCache() {
     const videos = await fetchPlaylistFromAPI();
     
     videoCache = {
-      videos: videos,
+      videos,
       lastUpdated: new Date(),
       totalVideos: videos.length,
     };
