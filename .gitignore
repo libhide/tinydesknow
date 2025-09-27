@@ -30,3 +30,6 @@ pids
 # Temporary folders
 tmp/
 temp/
+
+# Dependencies
+node_modules/
