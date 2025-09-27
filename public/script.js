@@ -13,7 +13,7 @@ async function redirectToVideo() {
     // Small delay to allow social crawlers to read meta tags
     setTimeout(() => {
       window.location.href = youtubeUrl;
-    }, 1500);
+    }, 1000);
   } catch (error) {
     console.error("Error fetching random video:", error);
 
@@ -26,4 +26,4 @@ async function redirectToVideo() {
   }
 }
 
-window.addEventListener("DOMContentLoaded", redirectToVideo);
+// window.addEventListener("DOMContentLoaded", redirectToVideo);
