@@ -45,7 +45,7 @@
             content="https://tinydesknow.com/og-image.jpg"
         />
 
-        <title>Tiny Desk Now - Random NPR Tiny Desk Concert</title>
+        <title>Tiny Desk Now</title>
 
         <style>
             body {
@@ -58,40 +58,14 @@
                 background: #000000;
                 color: white;
                 overflow: hidden;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .container {
-                display: flex;
-                align-items: flex-end;
-                justify-content: center;
-                height: 100vh;
-                width: 100vw;
-                padding: 0;
-                position: relative;
-            }
-
-            .content {
-                display: flex;
-                align-items: flex-end;
-                justify-content: center;
-                gap: 4rem;
-                width: 100%;
-                height: 100vh;
-                position: relative;
-                max-width: 1400px;
-                margin: 0 auto;
             }
 
             .mic-image {
-                flex-shrink: 0;
-                max-width: 800px;
-                width: 100%;
+                width: 50%;
                 position: absolute;
                 bottom: 0;
                 left: 0;
+                z-index: -99;
             }
 
             .mic-image img {
@@ -101,17 +75,17 @@
             }
 
             .text-content {
-                flex: 1;
-                text-align: left;
-                z-index: 1;
-                position: relative;
-                margin-left: 850px;
-                margin-bottom: 2rem;
-                padding-right: 2rem;
+                z-index: 99;
             }
 
-            .main-text {
-                font-size: 4rem;
+            .title {
+                position: absolute;
+                bottom: 22rem;
+                right: 15rem;
+            }
+
+            .title {
+                font-size: 5rem;
                 font-weight: 400;
                 line-height: 1.2;
                 margin: 0 0 2rem 0;
@@ -119,9 +93,10 @@
             }
 
             .credit {
-                font-size: 1.2rem;
-                opacity: 0.7;
-                margin: 0;
+                font-size: 2.5rem;
+                position: absolute;
+                bottom: 16rem;
+                right: 10rem;
             }
 
             .credit a {
@@ -130,57 +105,49 @@
             }
 
             /* Mobile styles */
-            @media (max-width: 768px) {
-                .content {
-                    flex-direction: column;
-                    gap: 2rem;
-                    text-align: center;
-                }
-
+            @media (max-width: 1476px) {
                 .mic-image {
-                    max-width: 200px;
-                    order: -1;
+                    width: 100%;
                 }
 
                 .text-content {
-                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 5rem;
                 }
 
-                .main-text {
-                    font-size: 2.5rem;
+                .title {
+                    display: block;
+                    position: static;
+                    font-size: 3rem;
+                    text-align: center;
+                    width: auto;
                 }
 
                 .credit {
-                    font-size: 1rem;
-                }
-            }
-
-            @media (max-width: 480px) {
-                .main-text {
-                    font-size: 2rem;
-                }
-
-                .container {
-                    padding: 1rem;
+                    position: static;
+                    display: block;
+                    font-size: 1.5rem;
+                    text-align: center;
                 }
             }
         </style>
     </head>
     <body>
         <div class="container">
-            <div class="content">
-                <div class="mic-image">
-                    <img src="img/mic.jpg" alt="Microphone" />
-                </div>
-                <div class="text-content">
-                    <h1 class="main-text">finding you a tiny concert...</h1>
-                    <p class="credit">
-                        made with &lt;3 by <a href="https://ratik.me">ratik</a>
-                    </p>
-                </div>
+            <div class="text-content">
+                <h1 class="title">finding you a tiny concert...</h1>
+                <p class="credit">
+                    made with &lt;3 by
+                    <a href="https://ratik.in" target="_blank">ratik</a>
+                </p>
+            </div>
+            <div class="mic-image">
+                <img src="img/mic.jpg" alt="Microphone" />
             </div>
         </div>
-
         <script src="script.js"></script>
     </body>
 </html>
