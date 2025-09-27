@@ -17,12 +17,12 @@ async function redirectToVideo() {
   } catch (error) {
     console.error("Error fetching random video:", error);
 
-    const fallbackVideoId = "ferZnZ0_rSM";
+    const fallbackVideoId = "4iQmPv_dTI0";
     const youtubeUrl = `https://www.youtube.com/watch?v=${fallbackVideoId}`;
 
     setTimeout(() => {
       window.location.href = youtubeUrl;
-    }, 1500);
+    }, 1000);
   }
 }
 
