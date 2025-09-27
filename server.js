@@ -21,7 +21,7 @@ let videoCache = {
 const CACHE_DURATION = 3 * 24 * 60 * 60 * 1000; // 3 days in milliseconds
 
 app.use(cors());
-app.use(express.static("."));
+app.use(express.static("./public"));
 
 async function fetchPlaylistFromAPI() {
   const apiKey = process.env.YOUTUBE_API_KEY;
@@ -57,13 +57,13 @@ async function refreshVideoCache() {
   try {
     console.log("🔄 Refreshing video cache...");
     const videos = await fetchPlaylistFromAPI();
-    
+
     videoCache = {
       videos,
       lastUpdated: new Date(),
       totalVideos: videos.length,
     };
-    
+
     console.log(`✅ Cache updated with ${videos.length} videos`);
   } catch (error) {
     console.error("❌ Failed to refresh cache:", error);
@@ -74,7 +74,7 @@ function isCacheValid() {
   if (!videoCache.lastUpdated || videoCache.videos.length === 0) {
     return false;
   }
-  
+
   const timeSinceUpdate = Date.now() - videoCache.lastUpdated.getTime();
   return timeSinceUpdate < CACHE_DURATION;
 }
@@ -121,7 +121,7 @@ app.listen(PORT, async () => {
   } else {
     // Initialize cache on startup
     await refreshVideoCache();
-    
+
     // Set up periodic refresh every 3 days
     setInterval(refreshVideoCache, CACHE_DURATION);
     console.log("📅 Scheduled cache refresh every 3 days");
