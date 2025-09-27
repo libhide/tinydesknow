@@ -1,13 +1,6 @@
 # Tiny Desk Now
 
-A simple web app that randomly selects and redirects you to a video from NPR's Tiny Desk Concert series.
-
-## Features
-
-- ✨ Random selection from the entire NPR Tiny Desk playlist (~800+ videos)
-- 🎵 No bias toward recent uploads - truly random across all concerts
-- 🔒 Secure API key handling for open source distribution
-- 🚀 Simple one-click experience
+A tiny app that redirects you to a random [Tiny Desk Concert by NPR](https://www.npr.org/series/tiny-desk-concerts/).
 
 ## Setup
 
@@ -42,30 +35,3 @@ pnpm start
 ```
 
 Visit `http://localhost:3000` and get redirected to a random Tiny Desk concert!
-
-## How It Works
-
-1. **Smart Caching**: Server fetches the complete NPR Tiny Desk playlist (~800+ videos) on startup
-2. **Background Refresh**: Cache automatically updates every 3 days to include new concerts
-3. **Social Media Friendly**: Landing page shows with proper meta tags for sharing, then redirects
-4. **Fast Experience**: 1.5 second delay allows crawlers to read meta tags while keeping UX snappy
-5. **Efficient**: Only hits YouTube API once every 3 days, not on every user visit
-6. **Fallback**: Graceful error handling ensures the app always works
-
-## Deployment
-
-For production deployment, set the `YOUTUBE_API_KEY` environment variable on your hosting platform.
-
-Popular options:
-
-- **Vercel**: Add the API key in your project settings
-- **Netlify**: Set environment variables in site settings
-- **Heroku**: Use `heroku config:set YOUTUBE_API_KEY=your_key`
-
-## Contributing
-
-Pull requests welcome! This project aims to stay simple and focused.
-
-## License
-
-MIT
