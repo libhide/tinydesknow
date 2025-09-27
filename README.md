@@ -47,15 +47,9 @@ Visit `http://localhost:3000` and get redirected to a random Tiny Desk concert!
 
 1. **Smart Caching**: Server fetches the complete NPR Tiny Desk playlist (~800+ videos) on startup
 2. **Background Refresh**: Cache automatically updates every 3 days to include new concerts
-3. **Instant Response**: Users get random videos immediately from cache (no API delays)
+3. **Direct Redirect**: Server immediately redirects users to a random video (no client-side code)
 4. **Efficient**: Only hits YouTube API once every 3 days, not on every user visit
 5. **Fallback**: Graceful error handling ensures the app always works
-
-## API Endpoints
-
-- `GET /` - Main app interface
-- `GET /api/random-video` - Returns a random video ID from cache
-- `GET /api/cache-status` - Debug endpoint showing cache status and age
 
 ## Deployment
 

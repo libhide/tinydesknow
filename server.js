@@ -21,7 +21,6 @@ let videoCache = {
 const CACHE_DURATION = 3 * 24 * 60 * 60 * 1000; // 3 days in milliseconds
 
 app.use(cors());
-app.use(express.static("."));
 
 async function fetchPlaylistFromAPI() {
   const apiKey = process.env.YOUTUBE_API_KEY;
@@ -79,7 +78,7 @@ function isCacheValid() {
   return timeSinceUpdate < CACHE_DURATION;
 }
 
-app.get("/api/random-video", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
     if (!isCacheValid()) {
       await refreshVideoCache();
@@ -91,35 +90,14 @@ app.get("/api/random-video", async (req, res) => {
 
     const randomIndex = Math.floor(Math.random() * videoCache.videos.length);
     const randomVideoId = videoCache.videos[randomIndex];
+    const youtubeUrl = `https://www.youtube.com/watch?v=${randomVideoId}`;
 
-    res.json({
-      videoId: randomVideoId,
-      totalVideos: videoCache.totalVideos,
-      cacheAge: videoCache.lastUpdated,
-    });
+    res.redirect(youtubeUrl);
   } catch (error) {
     console.error("Error serving random video:", error);
-    res.status(500).json({
-      error: "Failed to fetch videos",
-      fallback: true,
-      videoId: "ferZnZ0_rSM",
-    });
+    const fallbackUrl = "https://www.youtube.com/watch?v=ferZnZ0_rSM";
+    res.redirect(fallbackUrl);
   }
-});
-
-app.get("/api/cache-status", (req, res) => {
-  res.json({
-    isValid: isCacheValid(),
-    lastUpdated: videoCache.lastUpdated,
-    totalVideos: videoCache.totalVideos,
-    cacheAge: videoCache.lastUpdated 
-      ? `${Math.round((Date.now() - videoCache.lastUpdated.getTime()) / (1000 * 60 * 60))} hours`
-      : "Never",
-  });
-});
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.listen(PORT, async () => {
