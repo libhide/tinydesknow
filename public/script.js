@@ -26,4 +26,4 @@ async function redirectToVideo() {
   }
 }
 
-// window.addEventListener("DOMContentLoaded", redirectToVideo);
+window.addEventListener("DOMContentLoaded", redirectToVideo);
