@@ -64,7 +64,7 @@
 
             .container {
                 display: flex;
-                align-items: center;
+                align-items: flex-end;
                 justify-content: center;
                 min-height: 100vh;
                 padding: 2rem;
@@ -73,26 +73,36 @@
 
             .content {
                 display: flex;
-                align-items: center;
+                align-items: flex-end;
                 gap: 4rem;
-                max-width: 1200px;
+                max-width: 1400px;
                 width: 100%;
+                height: 100vh;
+                position: relative;
             }
 
             .mic-image {
                 flex-shrink: 0;
-                max-width: 600px;
+                max-width: 800px;
                 width: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
             }
 
             .mic-image img {
                 width: 100%;
                 height: auto;
+                display: block;
             }
 
             .text-content {
                 flex: 1;
                 text-align: left;
+                z-index: 1;
+                position: relative;
+                margin-left: 850px;
+                margin-bottom: 4rem;
             }
 
             .main-text {
