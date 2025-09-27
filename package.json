@@ -2,6 +2,7 @@
   "name": "tiny-desk-now",
   "version": "1.0.0",
   "description": "Random NPR Tiny Desk concert picker",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
